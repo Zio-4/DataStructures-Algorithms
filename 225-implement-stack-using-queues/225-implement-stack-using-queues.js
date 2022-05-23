@@ -1,7 +1,7 @@
 
 var MyStack = function() {
-    this.stack = []
-    this.temp = []
+    this.queue = [];
+    this.tmp = [];
 };
 
 /** 
@@ -9,44 +9,43 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    this.stack.length = this.stack.length + 1
-    this.stack[this.stack.length - 1] = x
+    this.queue.push(x);
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    // get the last element of the stack
-    // push everyhting except last element to temp array
-    // set temp array to stack
-    // return last element
-    console.log("stack before", this.stack)
-    let last = this.stack[this.stack.length - 1]
-    for (let i = 0; i < this.stack.length - 1; i++){
-        this.temp.push(this.stack[i])
+    while (this.queue.length > 1){
+        this.tmp.push(this.queue.shift());
     }
-    this.stack = this.temp
-    this.temp = []
-    console.log("stack after", this.stack)
-    return last
+    let number = this.queue.shift();
+    this.queue = this.tmp;
+    this.tmp = [];
+    return number
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    // look at the front
-    return this.stack[this.stack.length - 1]
+    while (this.queue.length > 1){
+        this.tmp.push(this.queue.shift());
+    }
+    var ele = this.queue.shift();
+    this.tmp.push(ele);
+    this.queue = this.tmp;
+    this.tmp = [];
+    return ele;
 };
 
 /**
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    console.log(this.stack.length)
-    return this.stack.length === 0
+    return this.queue.length === 0;
 };
+
 
 /** 
  * Your MyStack object will be instantiated and called as such:
