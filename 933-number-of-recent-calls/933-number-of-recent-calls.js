@@ -7,18 +7,31 @@ var RecentCounter = function() {
  * @param {number} t
  * @return {number}
  */
+// RecentCounter.prototype.ping = function(t) {
+//     this.requests.push(t)
+//     if (this.requests.length === 1) return 1
+    
+//     let lowerBound = t - 3000
+//     let upperBound = t
+//     let count = 0
+    
+//     for (const req of this.requests) {
+//         if (req >= lowerBound && req <= upperBound) count++
+//     }
+//     return count
+// };
+
 RecentCounter.prototype.ping = function(t) {
     this.requests.push(t)
     if (this.requests.length === 1) return 1
     
     let lowerBound = t - 3000
-    let upperBound = t
-    let count = 0
     
-    for (const req of this.requests) {
-        if (req >= lowerBound && req <= upperBound) count++
+    while (this.requests[0] < lowerBound) {
+        this.requests.shift()
     }
-    return count
+    
+    return this.requests.length
 };
 
 /** 
@@ -26,3 +39,5 @@ RecentCounter.prototype.ping = function(t) {
  * var obj = new RecentCounter()
  * var param_1 = obj.ping(t)
  */
+
+// 15
