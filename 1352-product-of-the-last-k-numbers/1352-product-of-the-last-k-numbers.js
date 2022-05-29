@@ -1,6 +1,6 @@
 
 var ProductOfNumbers = function() {
-    this.stream = []
+    this.nums = [1]
 };
 
 /** 
@@ -8,7 +8,8 @@ var ProductOfNumbers = function() {
  * @return {void}
  */
 ProductOfNumbers.prototype.add = function(num) {
-    this.stream.push(num)
+    if (!num) this.nums = [1]
+    else this.nums.unshift(num * (this.nums[0] || 1))
 };
 
 /** 
@@ -16,18 +17,8 @@ ProductOfNumbers.prototype.add = function(num) {
  * @return {number}
  */
 ProductOfNumbers.prototype.getProduct = function(k) {
-    console.log("arr =", this.stream)
-    let lastIdx = this.stream.length - 1
-    let prod = 0
-    let first = true
-    for (let i = lastIdx; i > lastIdx - k; i--) {
-        if (first) {
-            prod = this.stream[i]
-            first = false
-        } 
-        else prod *= this.stream[i]
-    }
-    return prod
+    // 0 if k index is undefined
+    return (this.nums[0] / this.nums[k]) || 0
 };
 
 /** 
