@@ -9,7 +9,7 @@ var ProductOfNumbers = function() {
  */
 ProductOfNumbers.prototype.add = function(num) {
     if (!num) this.nums = [1]
-    else this.nums.unshift(num * (this.nums[0] || 1))
+    else this.nums.unshift(num * (this.nums[0]))
 };
 
 /** 
