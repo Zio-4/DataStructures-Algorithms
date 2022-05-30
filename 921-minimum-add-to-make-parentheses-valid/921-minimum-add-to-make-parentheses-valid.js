@@ -2,17 +2,27 @@
  * @param {string} s
  * @return {number}
  */
-var minAddToMakeValid = function(S) {
-  const stack = []
-  for(let s of S){
-    if(s === ')' && stack[stack.length-1] === '(')
-      stack.pop()
-    else
-      stack.push(s)
-  }
-  return stack.length
+var minAddToMakeValid = function(s) {
+    let stk = []
+    
+    for (let i = 0; i < s.length; i++){
+        let top = stk[stk.length - 1]
+        
+        if (top === '(' && s[i] === ')') stk.pop()
+        else stk.push(s[i])
+    }
+    return stk.length
 };
 
-// ()))((
-    
-//  ))(())
+
+// (()))
+
+// ())
+
+// )))(((
+
+// ((()())
+
+
+// push everything
+ // before push, check if the the top of the stack is ( and the current is ) then pop instead
