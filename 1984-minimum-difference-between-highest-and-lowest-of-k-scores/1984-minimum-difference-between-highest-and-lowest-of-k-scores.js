@@ -12,15 +12,20 @@ var minimumDifference = function(nums, k) {
     
     
     for (let i = 0; i < nums.length - k + 1; i++) {
-        let sub = nums.slice(i, i+k)
+        // let sub = nums.slice(i, i+k)
         
-        let diff = Math.abs(sub[0] - sub[sub.length - 1])
+        // let diff = Math.abs(sub[0] - sub[sub.length - 1])
+        
+        let diff = Math.abs(nums[i] - nums[i + k - 1])
         
         minDiff = Math.min(minDiff, diff)
     }
     
     return minDiff
 };
+
+// time = 20
+// score = 3
 
 // 1,4,7,9    k = 2
 
