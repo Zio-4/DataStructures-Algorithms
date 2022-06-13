@@ -20,6 +20,10 @@ var intersection = function(nums1, nums2) {
     return result
 };
 
+// 25 mins
+
+// 1 - took to long, overthought simple solution
+
 // 
     
 //    [4,9,5]   [4,9,8,2,3,5] 
