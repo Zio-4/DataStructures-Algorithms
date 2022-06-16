@@ -17,8 +17,15 @@ var removeElement = function(nums, val) {
     console.log(nums)
     console.log('n after: ', n)
     
-    nums.splice(0,n)
+    nums.splice(0, n)
     
     console.log(nums)
     return nums.length
 };
+
+// 23 mins
+
+// Score = 3
+
+
+// Could not figure out why splice wasnt working
