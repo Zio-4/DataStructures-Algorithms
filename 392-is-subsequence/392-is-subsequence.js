@@ -22,7 +22,9 @@ var isSubsequence = function(s, t) {
     return counter === s.length
 };
 
-// TIme: 11 +
+// TIme: 11 + 6
+
+// Score: 4
 
 // 'abbbbb' 'afsdbbbfsdb'
 
