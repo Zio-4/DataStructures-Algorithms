@@ -4,21 +4,22 @@
  * @return {boolean}
  */
 var containsNearbyDuplicate = function(nums, k) {
-    if (k === 0) return false
-    
-    let map = {}
+    if (nums.length === 1) return false
+    const map = new Map()
     
     for (let i = 0; i < nums.length; i++) {
-        let num = nums[i]
-        
-        if (map[num] || map[num] === 0){
-            let diff = Math.abs(map[num] - i)
-            if (diff <= k) return true
-            else map[num] = i
-        } else {
-            map[num] = i
+        if (!map.has(nums[i])) map.set(nums[i], i)
+        else if (map.has(nums[i])) {
+            if (Math.abs(map.get(nums[i]) - i) <= k) {
+                return true
+            } else {
+                map.set(nums[i], i)
+            }
         }
     }
-    // console.log(map)
     return false
 };
+
+
+// update the index if the a duplicate exits and it dosent meet the requirement
+// [3,2,4,3,544,65,3]
