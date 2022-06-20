@@ -4,31 +4,25 @@
  * @return {number}
  */
 var minimumDifference = function(nums, k) {
-    if (k === 1) return 0
+    if (nums.length === 1) return 0
     
-    let minDiff = Infinity
+    nums.sort((a, b) => a - b)
     
-    nums.sort((a, b) => a - b) 
+    let min = Infinity
     
-    
-    for (let i = 0; i < nums.length - k + 1; i++) {
-        // let sub = nums.slice(i, i+k)
+    let left = 0
+    for (let right = k - 1; right < nums.length; right++) {
+        let diff = nums[right] - nums[left]
+        min = Math.min(min, diff)
+        left++
         
-        // let diff = Math.abs(sub[0] - sub[sub.length - 1])
-        
-        let diff = Math.abs(nums[i] - nums[i + k - 1])
-        
-        minDiff = Math.min(minDiff, diff)
     }
-    
-    return minDiff
+                                                           
+    return min                                                    
 };
 
-// time = 20
-// score = 3
+    // [1,2,3,4,5,6,7] k = 3
 
-// 1,4,7,9    k = 2
+// Fixed window of k length
 
-// [1, 2, 3, 50, 99,100 ] k = 3
-
-// [10, 7, 1, 2 18] k = 3
+// From 34
