@@ -10,32 +10,15 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    let length = 0
-    let temp = head
-    while (temp) {
-        temp = temp.next
-        length++
-    }
-
-    if (length === 0) return null
-    if (length === 1) return head
-    
-    let mid = Math.ceil(length / 2)
-    
-    if (length % 2 === 0) {
-        mid++
-    }
-    
-    console.log('mid', mid)
-    
+    let fast = head
     let counter = 1
-    let node = head
-    while (counter !== mid) {
-        console.log('node', node)
-        node = node.next
+    while (fast && fast.next) {
+        head = head.next
+        fast = fast.next.next
         counter++
     }
+    console.log(counter)
     
-    return node
-    
+    if (counter % 2 === 0) return head
+    else return head
 };
