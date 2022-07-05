@@ -11,13 +11,10 @@
  */
 var middleNode = function(head) {
     let fast = head
-    let counter = 1
     while (fast && fast.next) {
         head = head.next
         fast = fast.next.next
-        counter++
     }
-    console.log(counter)
     
     return head
 };
