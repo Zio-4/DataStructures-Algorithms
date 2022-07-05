@@ -19,6 +19,5 @@ var middleNode = function(head) {
     }
     console.log(counter)
     
-    if (counter % 2 === 0) return head
-    else return head
+    return head
 };
