@@ -10,17 +10,12 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    if (!head.next) return head
-    
     let fast = head
     
     while (fast && fast.next) {
-        console.log('hello')
         head = head.next
         fast = fast.next.next
     }
-    
-    // console.log(head)
     
     return head
 };
