@@ -3,8 +3,6 @@
  * @return {number}
  */
 var missingNumber = function(nums) {
-    if (nums.length == 1 && nums[0] == 0) return nums[0] + 1
-    if (nums.length == 1 && nums[0] == 1) return 0
     
     let i = 0
     
@@ -23,7 +21,7 @@ var missingNumber = function(nums) {
         if (nums[i] !== i) return i
     }
     
-    return nums[nums.length - 1] + 1
+    return nums.length
 };
 
 // if the number is greater than ther array length?
