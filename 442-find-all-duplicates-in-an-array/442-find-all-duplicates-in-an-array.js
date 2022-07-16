@@ -11,9 +11,6 @@ var findDuplicates = function(nums) {
     while (i < nums.length) {
         let currNum = nums[i]
         
-        console.log('currNum', currNum)
-        console.log('i', i)
-        
         if (currNum !== nums[currNum - 1]) {
             [nums[i], nums[currNum - 1]] = [nums[currNum - 1], nums[i]]
         } else i++
@@ -23,10 +20,7 @@ var findDuplicates = function(nums) {
         if (nums[i] !== i+1) arr.push(nums[i])
     }
     
-    console.log(nums)
-    
     return arr
-    
 };
 
 
