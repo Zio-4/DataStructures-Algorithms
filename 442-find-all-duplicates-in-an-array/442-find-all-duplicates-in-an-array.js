@@ -3,26 +3,31 @@
  * @return {number[]}
  */
 var findDuplicates = function(nums) {
-    if (nums.length == 1) return []
+    if (nums.length === 1) return []
     
-    let arr = []
+    let res = []
     
     let i = 0
     while (i < nums.length) {
-        let currNum = nums[i]
+        let curr = nums[i]
         
-        if (currNum !== nums[currNum - 1]) {
-            [nums[i], nums[currNum - 1]] = [nums[currNum - 1], nums[i]]
-        } else i++
+        if (curr !== nums[curr - 1] && curr <= nums.length) {
+            [nums[i], nums[curr - 1]] = [nums[curr - 1], nums[i]]
+        } else {
+            i++
+        }
     }
+    
     
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== i+1) arr.push(nums[i])
+        if (nums[i] !== i + 1) res.push(nums[i])
     }
     
-    return arr
+    return res
 };
 
-
-// [4,3,2,7,8,2,3,1]
-// [3,2,3,4,8,2,7,1]
+// Cycle sort (account for +1 indexing)
+// Loop and push every number not in place to an array
+    
+    
+    
