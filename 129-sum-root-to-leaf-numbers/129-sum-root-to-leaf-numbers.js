@@ -13,10 +13,7 @@
 var sumNumbers = function(root, pathSum = '', sums = []) {
     if (!root) return 0
     
-
-    console.log('curr node :', root)
     pathSum += root.val.toString()
-    console.log('pathSum', pathSum)
     
     if (!root.left && !root.right) {
         sums.push(parseInt(pathSum))
@@ -27,6 +24,9 @@ var sumNumbers = function(root, pathSum = '', sums = []) {
     
     return sums.reduce((prev, curr) => prev + curr, 0)
 };
+
+// Time: 19 minutes
+// SCore: 3
 
 // DFS
 // Go down each path and sum the nodes values
