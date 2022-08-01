@@ -13,22 +13,24 @@
 var averageOfLevels = function(root) {
     if (!root.left && !root.right) return [root.val]
     
-    let q = [root]
-    let res = []
-    let currentLevelAverage = 0
+    const q = [root]
+    let result = []
     
     while (q.length) {
-        let qlen = q.length
-
-        for (let i = 0; i < qlen; i++) {
+        let len = q.length
+        let currLvlAvg = 0
+        for (let i = 0; i < len; i++) {
             let node = q.shift()
+            console.log(node)
             if (node.left) q.push(node.left)
             if (node.right) q.push(node.right)
-            currentLevelAverage += node.val
+            
+            currLvlAvg += node.val
         }
-        res.push(currentLevelAverage / qlen)
-        currentLevelAverage = 0
+        
+        result.push(currLvlAvg / len)
+        currLvlAvg = 0
     }
     
-    return res
+    return result
 };
