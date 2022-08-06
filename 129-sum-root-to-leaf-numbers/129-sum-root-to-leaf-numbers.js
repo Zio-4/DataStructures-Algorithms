@@ -10,25 +10,29 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumNumbers = function(root, pathSum = '', sums = []) {
-    if (!root) return 0
+var sumNumbers = function(root) {
+    if (!root.left && !root.right) return root.val
     
-    pathSum += root.val.toString()
+    let total = 0
     
-    if (!root.left && !root.right) {
-        sums.push(parseInt(pathSum))
+    function dfs(node, currPath = '') {
+        
+        currPath += node.val
+        
+        if (!node.left && !node.right) {
+            
+            total += parseInt(currPath)
+        }
+        
+        if (node.left) dfs(node.left, currPath)
+        if (node.right) dfs(node.right, currPath)
     }
     
-    sumNumbers(root.left, pathSum, sums)
-    sumNumbers(root.right, pathSum, sums)
-    
-    return sums.reduce((prev, curr) => prev + curr, 0)
+    dfs(root)
+    return total
 };
 
-// Time: 19 minutes
-// SCore: 3
+// DFS 
+// Keep the current path's number in a string
 
-// DFS
-// Go down each path and sum the nodes values
-// Add each paths' sum to an array
-// reduce the array 
+// When a leaf a node is reached, add the current string total to the number total.
