@@ -3,26 +3,37 @@
  * @return {number}
  */
 var minAddToMakeValid = function(s) {
-    let stk = []
+    if (s.length < 2) return 1
     
-    for (let i = 0; i < s.length; i++){
-        let top = stk[stk.length - 1]
-        
-        if (top === '(' && s[i] === ')') stk.pop()
-        else stk.push(s[i])
+    const stack = [s[0]]
+    
+    for (let i = 1; i < s.length; i++) {
+        if (stack[stack.length - 1] === '(' && s[i] === ')') {
+           stack.pop() 
+        } 
+        else {
+         stack.push(s[i])   
+        }
     }
-    return stk.length
+    
+    return stack.length
 };
 
+// )()((
 
-// (()))
+// Stack = [),(,(]
 
+
+// (()))))(())
+// 3
+
+// Push everything
+
+// Pop: If top of stack is opening and current is closing
+
+// -----------------------------------------------------------------
+    
 // ())
-
-// )))(((
-
-// ((()())
-
-
-// push everything
- // before push, check if the the top of the stack is ( and the current is ) then pop instead
+// (((
+    
+//  []
