@@ -8,11 +8,14 @@ var minAddToMakeValid = function(s) {
     const stack = [s[0]]
     
     for (let i = 1; i < s.length; i++) {
-        if (stack[stack.length - 1] === '(' && s[i] === ')') {
+        let currParen = s[i]
+        let topOfStack = stack[stack.length - 1]
+        
+        if (topOfStack === '(' && currParen === ')') {
            stack.pop() 
         } 
         else {
-         stack.push(s[i])   
+         stack.push(currParen)   
         }
     }
     
