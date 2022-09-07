@@ -26,5 +26,5 @@ var searchBST = (root, val) => {
        return searchBST(root.left, val)
     }
     
-    searchBST(root, val)
+    // searchBST(root, val)
 }	
