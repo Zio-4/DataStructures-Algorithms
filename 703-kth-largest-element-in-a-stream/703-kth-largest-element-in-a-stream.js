@@ -19,7 +19,7 @@ var KthLargest = function(k, nums) {
 KthLargest.prototype.add = function(val) {
     this.main.enqueue(val);
     if(this.main.size() > this.k) this.main.dequeue().element;
-     return this.main.front().element;
+    return this.main.front().element;
 };
 
 /** 
