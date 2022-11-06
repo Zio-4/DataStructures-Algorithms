@@ -18,7 +18,6 @@ var findTargetSumWays = function(nums, target) {
         dfs(currSum + nums[idx], idx + 1)
         dfs(currSum - nums[idx], idx + 1)
         
-        
     }
     
     dfs(0, 0)
@@ -33,3 +32,4 @@ var findTargetSumWays = function(nums, target) {
 
 // The base case will be when we are at the last index, we check if sum == target
 
+// 22 mins
