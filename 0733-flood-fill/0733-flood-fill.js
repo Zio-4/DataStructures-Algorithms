@@ -16,7 +16,8 @@ var floodFill = function(image, sr, sc, color) {
        // left        right
        //      bottom
         
-        if (row < 0 || col >= image[0].length || 
+        if (row < 0 || 
+            col >= image[0].length || 
             row >= image.length || 
             col < 0 ||
             image[row][col] !== startColor || 
@@ -33,7 +34,7 @@ var floodFill = function(image, sr, sc, color) {
         
     }
     
-    dfs(y, x)
+    dfs(sr, sc)
     
     return image
 };
