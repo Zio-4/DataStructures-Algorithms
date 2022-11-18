@@ -19,15 +19,40 @@ var lengthOfLongestSubstring = function(s) {
                 subString.delete(s[left])
                 left++
             }
-            subString.add(curr)
-        } else {
-            subString.add(curr)
-            max = Math.max(max, subString.size)
         }
+        subString.add(curr)
+        max = Math.max(max, subString.size)
     }
     
     return max
 };
+
+// var lengthOfLongestSubstring = function(s) {
+//     if (!s) return 0
+    
+//     const subString = new Set()
+    
+//     let left = 0
+    
+//     let max = 0
+    
+//     for (let right = 0; right < s.length; right++) {
+//         let curr = s[right]
+        
+//         if (subString.has(curr)) {
+//             while (subString.has(curr)) {
+//                 subString.delete(s[left])
+//                 left++
+//             }
+//             subString.add(curr)
+//         } else {
+//             subString.add(curr)
+//             max = Math.max(max, subString.size)
+//         }
+//     }
+    
+//     return max
+// };
 
 
 // Sliding window and add to a Set()
